@@ -1,6 +1,6 @@
-EntradaMimo
-NarmaxMimo
-ParametroMimo
-PlotTreinoMimo
-ValidacaoMimo
-PlotValMimo
+MimoEntrada
+MimoNarmax
+MimoParametro
+MimoPlotTreino
+MimoValidacao
+MimoPlotVal
