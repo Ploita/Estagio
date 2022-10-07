@@ -36,8 +36,6 @@ for i = 1:r
 end
 
 %Cálculo da saída da planta
-
-
 input(:,:) = entrada(1:N,:);
 output(:,:) = PlantaTeste(entrada,ruido,n);
 
@@ -119,11 +117,9 @@ for i = 1:N
 end
 
 %% OLS
-
 %OLS MIMO
 tol = 0; %10^-3;         %Tolerância, o código para quando 1 - sum(ERR) < tol ou depois de varrer todos os parâmetros
 Mlimite = 6;            %Limite de termos, o código para quando atinge o número de termos ou depois de varrer todos os parâmetros
-%
 %Ortogonalização de P
 %o objetivo é reduzir a quantidade de parâmetros, então cada coluna de W é calculada testando todos os parâmetros disponíveis e utilizar apenas o melhor
 
@@ -224,7 +220,6 @@ custo = zeros(M,1);     %Variável auxiliar para o ERR, é basicamente um ERR te
 end
 
 %% Validação
-
 %Validação Simulação rho passos à frente
 RMSE = zeros(N-n,r);
 p_1 = zeros(N,M);

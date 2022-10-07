@@ -17,7 +17,6 @@ end
 %% Gráfico de validação
 
 rho = 1;
-
 for i = 1:r
     figure
     subplot(2,1,1)

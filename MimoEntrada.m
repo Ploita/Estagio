@@ -1,3 +1,5 @@
+
+
 %% Sinal APRBS
 N = 1000;   %Total de amostras
 L = 2; %grau dos polimônios máx 3
@@ -12,7 +14,6 @@ max_u = .1;  %Amplitude máxima da entrada
 
 %Pré-alocação de memória
 entrada = zeros(N,r);
-saida = zeros(N,r);
 ruido = normrnd(0,0.01,N,r);
 %ruido = zeros(N,r);
 
@@ -34,19 +35,13 @@ for i = 1:r
     end
 end
 
-%Cálculo da saída da planta #não-genérico
-for i = n+1:N
-    saida(i,2) = 0.5*saida(i-1,1) + entrada(i-2,1) + 0.1*saida(i-1,2)*entrada(i-1,1) + 0.5*ruido(i-1,1) + 0.2*saida(i-2,1)*ruido(i-2,1) + ruido(i,1);
-    saida(i,1) = 0.9*saida(i-2,2) + entrada(i-1,2) + 0.2*saida(i-1,2)*entrada(i-2,2) + 0.5*ruido(i-1,2) + 0.1*saida(i-1,2)*ruido(i-2,1) + ruido(i,2);
-end
-
+%Cálculo da saída da planta 
 input(:,:) = entrada(1:N,:);
-output(:,:) = saida(1:N,:);
+output(:,:) = PlantaTeste(entrada,ruido,n);
 
 %% Validação
 %Pré-alocação de memória
 entrada = zeros(N,r);
-saida = zeros(N,r);
 ruido = normrnd(0,0.01,N,r);
 
 T = 5;
@@ -70,12 +65,6 @@ end
 
 %Cálculo da saída da planta #não-genérico
 inp_val(:,:) = entrada(1:N,:);
-
-for i = n+1:N
-    saida(i,1) = 0.5*saida(i-1,1) + entrada(i-2,1) + 0.1*saida(i-1,2)*entrada(i-1,1) + 0.5*ruido(i-1,1) + 0.2*saida(i-2,1)*ruido(i-2,1) + ruido(i,1);
-    saida(i,2) = 0.9*saida(i-2,2) + entrada(i-1,2) + 0.2*saida(i-1,2)*entrada(i-2,2) + 0.5*ruido(i-1,2) + 0.1*saida(i-1,2)*ruido(i-2,1) + ruido(i,2);
-end
-
-out_val(:,:) = saida(1:N,:);
+out_val(:,:) = PlantaTeste(entrada,ruido,n);
 
 clear i amp Ts ruido entrada saida min_u max_u j T Th

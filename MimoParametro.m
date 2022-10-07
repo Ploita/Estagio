@@ -1,7 +1,6 @@
 %OLS MIMO
 tol = 0; %10^-3;         %Tolerância, o código para quando 1 - sum(ERR) < tol ou depois de varrer todos os parâmetros
 Mlimite = 6;            %Limite de termos, o código para quando atinge o número de termos ou depois de varrer todos os parâmetros
-%%
 %Ortogonalização de P
 %o objetivo é reduzir a quantidade de parâmetros, então cada coluna de W é calculada testando todos os parâmetros disponíveis e utilizar apenas o melhor
 
@@ -93,16 +92,11 @@ custo = zeros(M,1);     %Variável auxiliar para o ERR, é basicamente um ERR te
         teta(i) = g(i) + temp;
     end
     
-    
-    if iii ==1
-        par_y1 = teta;
-        mat_y1 = p_linha;
-    else
-        par_y2 = teta;
-        mat_y2 = p_linha;
-    end
-    
+    par(:,iii) = teta;
+    mat(:,:,iii) = p_linha;
 end
+
+
 
 
 

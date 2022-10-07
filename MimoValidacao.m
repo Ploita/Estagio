@@ -55,14 +55,8 @@ for k4 = 1:r
             p_lin(:,j) = p_1(:,indice(j,k4));
         end
         
-        if k4 == 1
-            for j = i:N
-                y_cha(i,j,k4) = p_lin(j,:)*par_y1;
-            end
-        else
-            for j = i:N
-                y_cha(i,j,k4) = p_lin(j,:)*par_y2;
-            end
+        for j = i:N
+            y_cha(i,j,k4) = p_lin(j,:)*par(:,k4);
         end
         
     end
