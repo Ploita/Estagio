@@ -1,0 +1,6 @@
+EntradaMimo
+NarmaxMimo
+ParametroMimo
+PlotTreinoMimo
+ValidacaoMimo
+PlotValMimo
