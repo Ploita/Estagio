@@ -1,5 +1,7 @@
 %% RLS
 teta_model = 0.01*ones(M,r);
+track = zeros (M,N,r);
+
 for j = 1:r
 erro = zeros(N,r);
 P = 10^3*eye(M);
@@ -14,6 +16,7 @@ P = 10^3*eye(M);
         teta_model(:,j) = teta_model(:,j) + ganho*erro(i,j);
         %Atualização de P
         P = P - ganho*(1 + p(i,:)*P*p(i,:)')*(ganho');
+        track(:,i,j)  = teta_model(:,j);
     end
     mat(:,:,j) = p;
     par(:,j) = teta_model(:,j);
