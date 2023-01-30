@@ -1,6 +1,7 @@
 %% RLS
 teta_model = 0.01*ones(M,r);
 track = zeros (M,N,r);
+% Ajustar para varrer r por N, ao invés de N por r
 
 for j = 1:r
 erro = zeros(N,r);

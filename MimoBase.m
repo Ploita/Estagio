@@ -1,7 +1,7 @@
 clear
 MimoEntrada
 MimoNarmax
-%MimoParametro
+% MimoParametro
 MimoRLS
 MimoPlotTreino
 MimoValidacao

@@ -1,6 +1,5 @@
-
-
 %% Sinal APRBS
+
 N = 1000;   %Total de amostras
 L = 2; %grau dos polimônios máx 3
 r = 2; %total de entradas/saídas

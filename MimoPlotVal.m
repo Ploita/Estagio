@@ -1,5 +1,5 @@
 % Gráfico de validação
-rho = 1;
+rho = 15;
 for i = 1:r
     figure
     subplot(2,1,1)
@@ -12,4 +12,5 @@ for i = 1:r
     pp(2).Color = 'r';
     title('Saída Real x Saída predita')
     sgtitle("Validação - y_" + i)
+% 	saveas(gcf,"Valida Y_" +i+".jpg")
 end
